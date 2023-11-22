@@ -65,15 +65,36 @@ public class ContentController {
         return "redirect:/";
     }
 
-    @GetMapping(value = {"hello"})
-    public void dbtest(){
-        contentService.Testing();
-        Content content= new Content();
-        content=contentService.getContent(3);
-        List<Comment> test=content.getComments();
-        System.out.println(content.getId()+", "+content.getTitle()+", "+content.getTexts());
-        for(int i=0;i<test.size();i++){
-            System.out.println(i+":"+test.get(i));
-        }
+//    @GetMapping(value = {"hello"})
+//    public void dbtest(){
+//        contentService.Testing();
+//        Content content= new Content();
+//        content=contentService.getContent(3);
+//        List<Comment> test=content.getComments();
+//        System.out.println(content.getId()+", "+content.getTitle()+", "+content.getTexts());
+//        for(int i=0;i<test.size();i++){
+//            System.out.println(i+":"+test.get(i));
+//        }
+//    }
+
+    @PostMapping("/content/like/{id}")
+    public String likeContent(@PathVariable int id)
+    {
+        contentService.goodContent(id);
+        return "redirect:/content/{id}";
     }
+
+    @PostMapping("/content/addComment/{id}")
+    public String addComment(@PathVariable int id, String commentWriter, String commentText)
+    {
+        Comment comment=new Comment();
+        comment.setWriter(commentWriter);
+        comment.setText(commentText);
+        System.out.println("holy !!"+comment.getWriter());
+        System.out.println("moly !!" +comment.getText());
+        contentService.saveComment(comment,id);
+        return "redirect:/";
+    }
+
+
 }

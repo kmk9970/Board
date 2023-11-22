@@ -3,6 +3,7 @@ package regist.practice.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -32,6 +33,9 @@ public class Content {
     private String updateDate;
 
     @OneToMany(mappedBy = "content", orphanRemoval = true)
-    private List<Comment> comments;
+    private List<Comment> comments=new ArrayList<Comment>();
+
+    @Column(name="good")
+    private int good = 0;
 
 }

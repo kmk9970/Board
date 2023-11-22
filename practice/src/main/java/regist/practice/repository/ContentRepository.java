@@ -3,20 +3,17 @@ package regist.practice.repository;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import regist.practice.domain.TransactionHistory;
 import regist.practice.domain.Comment;
 import regist.practice.domain.Content;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
 public class ContentRepository {
     private final EntityManager EM;
-    private static Map<Integer, Content> contents=new HashMap<>();
-    private static int sequence=0;
 
     public void save(Content content) {
 //        content.setId(++sequence);
@@ -50,7 +47,18 @@ public class ContentRepository {
         return EM.find(Content.class,id);
     }
 
-    public void test(){
+    public void registComment(Comment comment, Content content){
+        if(content.getComments()==null){
+            content.setComments(new ArrayList<Comment>());
+        }
+        comment.setContent(content);
+        EM.persist(comment);
+
+        content.getComments().add(comment);
+        EM.merge(content);
+
+
+
 //        Content content=new Content();
 //        content.setWriter("kmk");
 //        content.setTexts("hello this is test");
@@ -73,4 +81,9 @@ public class ContentRepository {
 //        EM.persist(comment);
 
     }
+
+    public void excelDataSave(TransactionHistory test){
+        EM.persist(test);
+    }
+
 }

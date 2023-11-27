@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>기간별 수익률</title>
+</head>
+<body>
+<form th:action="@{/excelbydate/read}" method="POST" >
+    <label for="date1">기간 시작</label>
+    <input type="text" id="date1" name="date1">
+    <br>
+    <label for="date2">기간 끝</label>
+    <input type="text" id="date2" name="date2">
+    <br>
+    <button type="submit">입력 확인</button>
+</form>
+
+</body>
+</html>

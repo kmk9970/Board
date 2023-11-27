@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function go(){
+        location.href = '/login/search';
+    }
+    function user(){
+        location.href = '/login/myasset';
+    }
+     function coin(){
+        location.href = '/login/graph';
+    }
+    function logout(){
+        location.href = '/';
+    }
+    function Board(){
+        location.href = 'home';
+    }
+</script>
+<div><a onclick="go()">코인검색</a></div>
+<div><a onclick="user()">마이페이지</a></div>
+<div><a onclick="coin()">코인그래프</a></div>
+<div><a onclick="logout()">로그아웃</a></div>
+<div><a onclick="Board()">게시판</a></div>
+</body>
+</html>

@@ -26,8 +26,6 @@ public class Content {
 
     @Column(name="writer")
     private String writer;
-    @Column(name="password")
-    private String password;
 
     @Column(name="updateDate")
     private String updateDate;

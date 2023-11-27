@@ -16,9 +16,6 @@
                 <br/>
                 <div th:text="'작성자 : ' + ${content.writer}"></div>
                 <br/>
-                <label for="password">비밀번호 확인 : </label>
-                <input type="password" id="password" name="password" width="200px">
-                <br/><br/>
                 <label for="texts">글 내용 : </label>
                 <br/><br/>
                 <textarea id="texts" name="texts">[[${content.texts}]]</textarea>
@@ -30,9 +27,9 @@
             <button th:formaction="@{/content/delete/{id} (id=${content.id})}"
                     type="submit">삭제</button>
             <div>
-               <span>작성자</span>
-                <input type="text" id="commentWriter" name="commentWriter">
+                <br>
                 <span>댓글 내용</span>
+                <br>
 <!--                <input type="text" id="commentText" name="commentText" width="200px">-->
                 <textarea id="commentText" name="commentText"></textarea>
                 <button th:formaction="@{/content/addComment/{id} (id=${content.id})}" type="submit">댓글 추가</button>
@@ -40,14 +37,16 @@
                 <table>
                     <thead>
                     <tr>
-                        <th width="200">user</th>
-                        <th width="400">text</th>
+                        <th width="200">유저</th>
+                        <th width="400">댓글</th>
+                        <th width="200">버튼</th>
                     </tr>
                     </thead>
                     <tbody align="center">
                     <tr th:each="comment:${content.comments}">
                         <td th:text="${comment.writer}"></td>
                         <td th:text="${comment.text}"></td>
+                        <td></td>
                     </tr>
                     </tbody>
                 </table>

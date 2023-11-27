@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form role="form" action="/createMember" th:object="${CreateMemberForm}"
+      method="post">
+
+    <div class="form">
+        <div class="col1">아이디</div>
+        <div class="col2">
+            <input type="text" th:field="*{makeId}" class="form-control" placeholder="아이디"
+                   th:class="${#fields.hasErrors('makeId')}? 'form-control
+  fieldError' : 'form-control'">
+        </div>
+    </div>
+    <div class="form">
+        <div class="col1">비밀번호 </div>
+        <div class="col2">
+            <input type="password" th:field="*{makePass}" class="form-control" placeholder="비밀번호"
+                   th:class="${#fields.hasErrors('makePass')}? 'form-control
+  fieldError' : 'form-control'">
+        </div>
+    </div>
+
+    <div class="form">
+        <div class="col1">비밀번호 확인</div>
+        <div class="col2">
+            <input type="password" th:field="*{confirm}" class="form-control" placeholder="비밀번호 재입력"
+                   th:class="${#fields.hasErrors('confirm')}? 'form-control
+  fieldError' : 'form-control'">
+        </div>
+    </div>
+
+    <div class="form">
+        <div class="col1">API KEY</div>
+        <div class="col2">
+            <input type="text" th:field="*{api_key}" class="form-control" placeholder="API KEY"
+                   th:class="${#fields.hasErrors('api_key')}? 'form-control
+  fieldError' : 'form-control'">
+        </div>
+    </div>
+
+    <div class="form">
+        <div class="col1">SEC KEY</div>
+        <div class="col2">
+            <input type="text" th:field="*{sec_key}" class="form-control" placeholder="SEC KEY"
+                   th:class="${#fields.hasErrors('sec_key')}? 'form-control
+  fieldError' : 'form-control'">
+        </div>
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-primary">회원가입</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        .main {
+    width: 400px;
+    height: 450px;
+    display: flex;
+    position: absolute;
+  top: 30%;
+  left: 40%;
+  margin: -50px 0 0 -50px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.logo {
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+#login {
+    width: 100%;
+    background-color: skyblue;
+    border-color: transparent;
+    color: white;
+}
+
+.account {
+    display: block;
+    margin-bottom: 3px;
+    padding: 3px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+#alert {
+    border-color: transparent;
+}
+    </style>
+</head>
+<body>
+<script>
+    function create() {
+          location.href = '/createMember';
+      }
+</script>
+<form role="form" action="/login" th:object="${LoginForm}"
+      method="post">
+    <div class="main">
+        <h1 class="logo">CoinHigh</h1>
+        <div class="container">
+            <input type="text" th:field="*{identity}" class="form-control" placeholder="아이디"
+                   th:class="${#fields.hasErrors('identity')}? 'form-control
+  fieldError' : 'form-control'">
+            <input type="password" th:field="*{pass}" class="form-control" placeholder="비밀번호"
+                   th:class="${#fields.hasErrors('pass')}? 'form-control
+fieldError' : 'form-control'">
+            <button type="submit">login</button>
+            <div><a onclick="create()">회원가입</a></div>
+
+        </div>
+    </div>
+</form>
+
+<!--<form action="/login" method="post">-->
+<!--  <div class="main">-->
+<!—    <div class="container">- —>
+
+    <!—    <input type="text" id="identity" name="identity" placeholder="제목을 입력하세요" width="400px">—>
+    <!—      <input type="text" id="pass" name="pass" placeholder="제목을 입력하세요" width="400px">—>
+
+    <!—    <button type="submit">login</button>—>
+    <!—    <div><a onclick="create()">회원가입</a></div>—>
+    <!—    </div>—>
+<!—  </div>—>
+<!—</form>—>
+
+
+</body>
+</html>

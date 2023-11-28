@@ -50,8 +50,8 @@ public class Api {
 
         String total_krw = "";
         String result="";
-        String apiKey = "e8d62d019ec15f02480fff030e52db42";
-        String apiSec = "eddf5053c29a30136cc954f41d49df65";
+        String apiKey = "";
+        String apiSec = "";
         Api_Client call_api = new Api_Client(apiKey,apiSec);
         try {
 

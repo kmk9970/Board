@@ -37,7 +37,7 @@ dependencies {
 	implementation 'org.apache.poi:poi-ooxml:5.0.0'
 	implementation group: 'xerces', name: 'xercesImpl', version: '2.11.0'
 	implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
-
+	implementation group: 'com.squareup.okhttp', name: 'okhttp', version: '2.7.5'
 
 }
 

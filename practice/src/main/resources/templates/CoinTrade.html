@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CoinTrade</title>
+</head>
+<body>
+<form th:action="@{/excelbydate/read}" method="POST" >
+    <label for="coin_Name">코인 이름</label>
+    <input type="text" id="coin_name" name="coin_name">
+    <br>
+    <label for="price">코인수량</label>
+    <input type="text" id="price" name="price">
+    <br>
+    <button th:formaction="@{/CoinTrade/buycoin}" type="submit">구매 확인</button>
+    <button th:formaction="@{/CoinTrade/sellcoin}" type="submit">판매 확인</button>
+</form>
+
+</body>
+</html>

@@ -14,6 +14,6 @@ public class user_rank {
     private String user_id;
 
     private Double win_rate;
-    //자산(현금)증가율
+
     private Double profit_rate;
 }

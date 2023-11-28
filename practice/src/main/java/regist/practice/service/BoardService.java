@@ -65,6 +65,10 @@ public class BoardService {
         }
     }
 
+    public int findContentId(int comment_id){
+        return boardRepository.findContentId(comment_id);
+    }
+
     public void goodContent(int id)
     {
         Content content = boardRepository.findById(id);

@@ -88,14 +88,19 @@ public class BoardRepository {
         return EM.find(Comment.class,id);
     }
 
+    public int findContentId(int comment_id){
+        return EM.find(Comment.class,comment_id).getContent().getId();
+    }
 
     //댓글을 삭제하는 함수 content를 받아서 commentList에서 입력받은 comment를 없애자
     public void deleteComment(int comment_id, Content content){
+
         Comment comment=EM.find(Comment.class,comment_id);
         content.getComments().remove(comment);
         EM.persist(content);
         EM.remove(comment);
     }
+
 
     public void excelDataSave(TransactionHistory test){
         EM.persist(test);

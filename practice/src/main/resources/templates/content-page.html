@@ -46,7 +46,7 @@
                     <tr th:each="comment:${content.comments}">
                         <td th:text="${comment.writer}"></td>
                         <td th:text="${comment.text}"></td>
-<!-- 삭제버튼 고장남      <td><button th:formaction="@{/content/deleteComment/{id} (id=${comment.id})}" type="submit">삭제</button></td>-->
+                        <td><button th:formaction="@{/content/deleteComment/{id} (id=${comment.comment_id})}" type="submit">삭제</button></td>
                     </tr>
                     </tbody>
                 </table>

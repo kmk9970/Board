@@ -94,7 +94,8 @@ public class BoardController {
     public String deleteComment(@PathVariable int id, HttpServletRequest request) {
         HttpSession session = request.getSession();
         boardService.deleteComment(id, String.valueOf(session.getAttribute("ID")));
-        return "redirect:/content/{id}";
+
+        return "redirect:/home";
     }
 
     //좋아요
